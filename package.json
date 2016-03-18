@@ -1,0 +1,32 @@
+{
+  "name": "lsx-starter-child-theme",
+  "version": "1.0.0",
+  "description": "A Starter LSX Child Theme",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lightspeeddevelopment/lsx-starter-child-theme.git"
+  },
+  "keywords": [
+    "lsx",
+    "child",
+    "theme",
+    "starter"
+  ],
+  "author": "LightSpeed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lightspeeddevelopment/lsx-starter-child-theme/issues"
+  },
+  "homepage": "https://github.com/lightspeeddevelopment/lsx-starter-child-theme#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-sass": "^2.2.0",
+    "jshint": "^2.9.1"
+  }
+}
