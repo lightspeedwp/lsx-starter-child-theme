@@ -3,7 +3,7 @@ var gulp = require('gulp');
 gulp.task('default', function() {	 
 	console.log('Use the following commands');
 	console.log('--------------------------');
-	console.log('gulp compile-sass		to compile the custom.scss to custom.css');
+	console.log('gulp compile-css		to compile the custom.scss to custom.css');
 	console.log('gulp compile-js		to compile the custom.js to custom.min.js');
 	console.log('gulp watch				to continue watching the files for changes.');
 });
