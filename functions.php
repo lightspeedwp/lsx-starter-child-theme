@@ -6,6 +6,18 @@
  */
 
 /**
+ * Sets up theme defaults
+ *
+ * @package 	lsx-child
+ * @subpackage	setup
+ * @category	languages
+ */
+function lsx_child_setup() {
+	load_theme_textdomain( 'lsx-child', get_stylesheet_directory() . '/languages' );
+}
+add_action( 'after_setup_theme', 'lsx_child_setup' );
+
+/**
  * Enqueues the parent and the child theme styles.
  *
  * @package 	lsx-child
