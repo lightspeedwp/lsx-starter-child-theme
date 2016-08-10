@@ -12,4 +12,4 @@ This will run the package.json file and download the list of modules to a "node_
 `gulp watch`
 `gulp compile-css`
 `gulp compile-js`
-`gulp wordpress-pot`
+`gulp wordpress-lang`

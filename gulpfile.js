@@ -6,7 +6,7 @@ gulp.task('default', function() {
 	console.log('gulp compile-css		to compile the custom.scss to custom.css');
 	console.log('gulp compile-js		to compile the custom.js to custom.min.js');
 	console.log('gulp watch				to continue watching the files for changes.');
-	console.log('gulp wordpress-pot		to compile the lsx-child.pot, en_EN.po and en_EN.mo');
+	console.log('gulp wordpress-lang	to compile the lsx-child.pot, en_EN.po and en_EN.mo');
 });
 
 var sass = require('gulp-sass');
@@ -41,7 +41,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('wordpress-pot', function () {
-	gulp.src('**/*.php')
+	return gulp.src('**/*.php')
 		.pipe(sort())
 		.pipe(wppot({
 			domain: 'lsx-child',
@@ -51,8 +51,10 @@ gulp.task('wordpress-pot', function () {
 			team: 'LightSpeed <webmaster@lsdev.biz>'
 		}))
 		.pipe(gulp.dest('languages'));
+});
 
-	gulp.src('**/*.php')
+gulp.task('wordpress-po', function () {
+	return gulp.src('**/*.php')
 		.pipe(sort())
 		.pipe(wppot({
 			domain: 'lsx-child',
@@ -62,8 +64,12 @@ gulp.task('wordpress-pot', function () {
 			team: 'LightSpeed <webmaster@lsdev.biz>'
 		}))
 		.pipe(gulp.dest('languages'));
+});
 
-	gulp.src('languages/en_EN.po')
+gulp.task('wordpress-po-mo', ['wordpress-po'], function() {
+	return gulp.src('languages/en_EN.po')
 		.pipe(gettext())
 		.pipe(gulp.dest('languages'));
 });
+
+gulp.task('wordpress-lang', (['wordpress-pot', 'wordpress-po-mo']));
