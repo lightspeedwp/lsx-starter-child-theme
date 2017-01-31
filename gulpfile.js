@@ -3,10 +3,10 @@ var gulp = require('gulp');
 gulp.task('default', function() {	 
 	console.log('Use the following commands');
 	console.log('--------------------------');
-	console.log('gulp compile-css		to compile the custom.scss to custom.css');
-	console.log('gulp compile-js		to compile the custom.js to custom.min.js');
-	console.log('gulp watch				to continue watching the files for changes.');
-	console.log('gulp wordpress-lang	to compile the lsx-child.pot, en_EN.po and en_EN.mo');
+	console.log('gulp compile-css    to compile the custom.scss to custom.css');
+	console.log('gulp compile-js     to compile the custom.js to custom.min.js');
+	console.log('gulp watch          to continue watching the files for changes.');
+	console.log('gulp wordpress-lang to compile the lsx-starter-child-theme.pot, en_EN.po and en_EN.mo');
 });
 
 var sass = require('gulp-sass');
@@ -17,53 +17,49 @@ var sort = require('gulp-sort');
 var wppot = require('gulp-wp-pot');
 var gettext = require('gulp-gettext');
 
-gulp.task('sass', function () { 
-    gulp.src('custom.scss')
-        .pipe(sass())
-        .pipe(gulp.dest(''));
+gulp.task('sass', function() {
+	gulp.src('custom.scss')
+		.pipe(sass())
+		.pipe(gulp.dest(''));
 });
 
-gulp.task('js', function () {
-	gulp.src('assets/js/custom.js')	 
-	//.pipe(jshint())	 
-	//.pipe(jshint.reporter('fail'))	 
-	.pipe(concat('custom.min.js'))
-	.pipe(uglify())
-	.pipe(gulp.dest('assets/js')); 
+gulp.task('js', function() {
+	gulp.src('assets/js/custom.js')
+		.pipe(jshint())
+		.pipe(jshint.reporter('fail'))
+		.pipe(concat('custom.min.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('assets/js'));
 });
  
 gulp.task('compile-css', ['sass']);
 gulp.task('compile-js', ['js']);
 
 gulp.task('watch', function() {	 
-	gulp.watch('custom.scss', ['sass']);	 
-	gulp.watch('assets/js/custom.js', ['js']);	 
+	gulp.watch('custom.scss', ['sass']);
+	gulp.watch('assets/js/custom.js', ['js']);
 });
 
-gulp.task('wordpress-pot', function () {
+gulp.task('wordpress-pot', function() {
 	return gulp.src('**/*.php')
 		.pipe(sort())
 		.pipe(wppot({
-			domain: 'lsx-child',
-			destFile: 'lsx-child.pot',
-			package: 'lsx-child',
-			bugReport: 'https://github.com/lightspeeddevelopment/lsx-starter-child-theme/issues',
+			domain: 'lsx-starter-child-theme',
+			package: 'lsx-starter-child-theme',
 			team: 'LightSpeed <webmaster@lsdev.biz>'
 		}))
-		.pipe(gulp.dest('languages'));
+		.pipe(gulp.dest('languages/lsx-starter-child-theme.pot'));
 });
 
-gulp.task('wordpress-po', function () {
+gulp.task('wordpress-po', function() {
 	return gulp.src('**/*.php')
 		.pipe(sort())
 		.pipe(wppot({
-			domain: 'lsx-child',
-			destFile: 'en_EN.po',
-			package: 'lsx-child',
-			bugReport: 'https://github.com/lightspeeddevelopment/lsx-starter-child-theme/issues',
+			domain: 'lsx-starter-child-theme',
+			package: 'lsx-starter-child-theme',
 			team: 'LightSpeed <webmaster@lsdev.biz>'
 		}))
-		.pipe(gulp.dest('languages'));
+		.pipe(gulp.dest('languages/en_EN.po'));
 });
 
 gulp.task('wordpress-po-mo', ['wordpress-po'], function() {
