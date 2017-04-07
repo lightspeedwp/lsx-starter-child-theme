@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "A Starter LSX Child Theme",
   "main": "gulpfile.js",
-  "scripts": {
-    "deploy-localhost-nandotess": "./bin/deploy-localhost-nandotess.sh"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lightspeeddevelopment/lsx-starter-child-theme.git"

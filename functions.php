@@ -12,7 +12,7 @@
  * @subpackage	setup
  */
 function lsx_sct_child_setup() {
-	load_theme_textdomain( 'lsx-starter-child-theme', get_stylesheet_directory() . '/languages' . get_locale() . '.mo' );
+	load_child_theme_textdomain( 'lsx-starter-child-theme', get_stylesheet_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'lsx_sct_child_setup' );
 
@@ -29,7 +29,7 @@ function lsx_sct_child_scripts() {
 	//wp_deregister_style( 'lsx_font_scheme' );
 
 	wp_enqueue_script( 'lsx-starter-child-theme-scripts', get_stylesheet_directory_uri() . '/assets/js/custom.min.js', array( 'jquery' ) );
-	wp_enqueue_style( 'lsx-starter-child-theme-styles', get_template_directory_uri() . '/style.css' );
+	wp_enqueue_style( 'lsx-starter-child-theme-styles', get_template_directory_uri() . '/style.css', array( 'lsx_main', 'fontawesome', 'medium-break' ) );
 
 	// Google Fonts. Add these lines if your website will use a different font.
 	//wp_register_style( 'lsx-starter-child-theme-quattrocento-sans', 'https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i' );
