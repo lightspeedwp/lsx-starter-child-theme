@@ -14,7 +14,7 @@
 function lsx_sct_child_setup() {
 	load_child_theme_textdomain( 'lsx-starter-child-theme', get_stylesheet_directory() . '/languages' );
 }
-add_action( 'after_setup_theme', 'lsx_sct_child_setup' );
+add_action( 'after_setup_theme', 'lsx_sct_child_setup', 11 );
 
 /**
  * Enqueues the parent and the child theme styles.
@@ -24,15 +24,13 @@ add_action( 'after_setup_theme', 'lsx_sct_child_setup' );
  */
 function lsx_sct_child_scripts() {
 	// Fonts from LSX Theme. Add these lines if your website will use a different font.
-	//wp_deregister_style( 'lsx-header-font' );
-	//wp_deregister_style( 'lsx-body-font' );
-	//wp_deregister_style( 'lsx_font_scheme' );
+	//wp_dequeue_style( 'lsx-header-font' );
+	//wp_dequeue_style( 'lsx-body-font' );
+	//wp_dequeue_style( 'lsx_font_scheme' );
+	
+	// Google Fonts. Add these lines if your website will use a different font.
+	//wp_enqueue_style( 'lsx-starter-child-theme-quattrocento-sans', 'https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i' );
 
 	wp_enqueue_script( 'lsx-starter-child-theme-scripts', get_stylesheet_directory_uri() . '/assets/js/custom.min.js', array( 'jquery' ) );
-	wp_enqueue_style( 'lsx-starter-child-theme-styles', get_template_directory_uri() . '/style.css', array( 'lsx_main', 'fontawesome', 'medium-break' ) );
-
-	// Google Fonts. Add these lines if your website will use a different font.
-	//wp_register_style( 'lsx-starter-child-theme-quattrocento-sans', 'https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i' );
-	//wp_enqueue_style( 'lsx-starter-child-theme-quattrocento-sans');
 }
-add_action( 'wp_enqueue_scripts', 'lsx_sct_child_scripts' );
+add_action( 'wp_enqueue_scripts', 'lsx_sct_child_scripts', 11 );
