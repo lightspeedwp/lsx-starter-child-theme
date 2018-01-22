@@ -31,6 +31,7 @@ function lsx_sct_child_scripts() {
 	// Google Fonts. Add these lines if your website will use a different font.
 	//wp_enqueue_style( 'lsx-starter-child-theme-quattrocento-sans', 'https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i' );
 
+	wp_enqueue_style( 'lsx-starter-child-theme-styles', get_stylesheet_directory_uri() . '/custom.css' );
 	wp_enqueue_script( 'lsx-starter-child-theme-scripts', get_stylesheet_directory_uri() . '/assets/js/custom.min.js', array( 'jquery' ) );
 }
 add_action( 'wp_enqueue_scripts', 'lsx_sct_child_scripts', 11 );
