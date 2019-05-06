@@ -1,5 +1,5 @@
 <?php
-namespace \lsx_starter_child_theme\classes;
+namespace lsx_starter_child_theme\classes;
 /**
  * @package   lsx_starter_child_theme\classes
  * @author    LightSpeed
