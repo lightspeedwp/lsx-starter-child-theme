@@ -18,9 +18,9 @@ var wppot = require('gulp-wp-pot');
 var gettext = require('gulp-gettext');
 
 gulp.task('sass', function() {
-	gulp.src('custom.scss')
+	gulp.src('assets/css/custom.scss')
 		.pipe(sass())
-		.pipe(gulp.dest(''));
+		.pipe(gulp.dest('assets/css'));
 });
 
 gulp.task('js', function() {
@@ -35,8 +35,9 @@ gulp.task('js', function() {
 gulp.task('compile-css', ['sass']);
 gulp.task('compile-js', ['js']);
 
-gulp.task('watch', function() {	 
-	gulp.watch('custom.scss', ['sass']);
+gulp.task('watch', function() {
+	gulp.watch('assets/css/***/***', ['sass']);
+	gulp.watch('assets/css/***', ['sass']);
 	gulp.watch('assets/js/custom.js', ['js']);
 });
 
