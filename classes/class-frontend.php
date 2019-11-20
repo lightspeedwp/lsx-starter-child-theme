@@ -56,6 +56,14 @@ class Frontend {
 	 * @subpackage	setup
 	 */
 	function scripts() {
+		if ( defined( 'SCRIPT_DEBUG' ) ) {
+			$prefix = '';
+			$suffix = '';
+		} else {
+			$prefix = '';
+			$suffix = '.min';
+		}
+		https://github.com/lightspeeddevelopment/lsx-starter-child-theme.git
 		// Fonts from LSX Theme. Add these lines if your website will use a different font.
 		//wp_dequeue_style( 'lsx-header-font' );
 		//wp_dequeue_style( 'lsx-body-font' );
@@ -65,6 +73,6 @@ class Frontend {
 		//wp_enqueue_style( 'lsx-starter-child-theme-quattrocento-sans', 'https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i' );
 
 		wp_enqueue_style( 'lsx-starter-child-theme-styles', get_stylesheet_directory_uri() . '/custom.css' );
-		wp_enqueue_script( 'lsx-starter-child-theme-scripts', get_stylesheet_directory_uri() . '/assets/js/custom.min.js', array( 'jquery' ) );
+		wp_enqueue_script( 'lsx-starter-child-theme-scripts', get_stylesheet_directory_uri() . '/assets/js/' . $prefix . 'custom' . $suffix . '.js', array( 'jquery' ) );
 	}	
 }
