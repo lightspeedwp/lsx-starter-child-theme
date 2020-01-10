@@ -2,7 +2,7 @@
 /**
  * LSX Starter Child functions
  *
- * @package 	lsx-starter-child-theme
+ * @package lsx-starter-child-theme
  */
 
 require get_stylesheet_directory() . '/classes/class-core.php';

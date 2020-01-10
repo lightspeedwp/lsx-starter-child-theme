@@ -1,6 +1,7 @@
 <?php
-namespace lsx_starter_child_theme\classes;
 /**
+ * Class Core
+ *
  * @package   lsx_starter_child_theme\classes
  * @author    LightSpeed
  * @license   GPL-2.0+
@@ -8,8 +9,11 @@ namespace lsx_starter_child_theme\classes;
  * @copyright 2019 LightSpeed
  */
 
+namespace lsx_starter_child_theme\classes;
+
 /**
  * Class Core
+ *
  * @package lsx_starter_child_theme\classes
  */
 class Core {
@@ -24,21 +28,29 @@ class Core {
 	protected static $instance = null;
 
 	/**
+	 * Setup
+	 *
 	 * @var object lsx_starter_child_theme\classes\Setup();
 	 */
 	public $setup;
 
 	/**
+	 * Admin
+	 *
 	 * @var object lsx_starter_child_theme\classes\Admin();
 	 */
 	public $admin;
 
 	/**
+	 * FrontEnd
+	 *
 	 * @var object lsx_starter_child_theme\classes\Frontend();
 	 */
 	public $frontend;
 
 	/**
+	 * Search
+	 *
 	 * @var object lsx_starter_child_theme\classes\Search();
 	 */
 	public $search;
@@ -51,13 +63,13 @@ class Core {
 	 * @access private
 	 */
 	private function __construct() {
-		require_once( get_stylesheet_directory() . '/classes/class-setup.php' );
+		require_once get_stylesheet_directory() . '/classes/class-setup.php';
 		$this->setup = Setup::get_instance();
 
-		require_once( get_stylesheet_directory() . '/classes/class-admin.php' );
+		require_once get_stylesheet_directory() . '/classes/class-admin.php';
 		$this->admin = Admin::get_instance();
 
-		require_once( get_stylesheet_directory() . '/classes/class-frontend.php' );
+		require_once get_stylesheet_directory() . '/classes/class-frontend.php';
 		$this->frontend = Frontend::get_instance();
 	}
 
@@ -71,8 +83,8 @@ class Core {
 	public static function get_instance() {
 
 		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
-			self::$instance = new self;
+		if ( null === self::$instance ) {
+			self::$instance = new self();
 		}
 
 		return self::$instance;

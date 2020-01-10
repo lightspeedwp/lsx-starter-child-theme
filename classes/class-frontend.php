@@ -1,6 +1,7 @@
 <?php
-namespace lsx_starter_child_theme\classes;
 /**
+ * Class FrontEnd
+ *
  * @package   lsx_starter_child_theme\classes
  * @author    LightSpeed
  * @license   GPL-2.0+
@@ -8,8 +9,11 @@ namespace lsx_starter_child_theme\classes;
  * @copyright 2019 LightSpeed
  */
 
+namespace lsx_starter_child_theme\classes;
+
 /**
- * Class Core
+ * Class Frontend
+ *
  * @package lsx_starter_child_theme\classes
  */
 class Frontend {
@@ -43,8 +47,8 @@ class Frontend {
 	 */
 	public static function get_instance() {
 		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
-			self::$instance = new self;
+		if ( null === self::$instance ) {
+			self::$instance = new self();
 		}
 		return self::$instance;
 	}
@@ -52,10 +56,10 @@ class Frontend {
 	/**
 	 * Enqueues the parent and the child theme styles.
 	 *
-	 * @package 	lsx-starter-child-theme
-	 * @subpackage	setup
+	 * @package    lsx-starter-child-theme
+	 * @subpackage setup
 	 */
-	function scripts() {
+	public function scripts() {
 		if ( defined( 'SCRIPT_DEBUG' ) ) {
 			$prefix = '';
 			$suffix = '';
@@ -63,16 +67,15 @@ class Frontend {
 			$prefix = '';
 			$suffix = '.min';
 		}
-		https://github.com/lightspeeddevelopment/lsx-starter-child-theme.git
+		//https://github.com/lightspeeddevelopment/lsx-starter-child-theme.git
 		// Fonts from LSX Theme. Add these lines if your website will use a different font.
 		//wp_dequeue_style( 'lsx-header-font' );
 		//wp_dequeue_style( 'lsx-body-font' );
 		//wp_dequeue_style( 'lsx_font_scheme' );
-		
+
 		// Google Fonts. Add these lines if your website will use a different font.
 		//wp_enqueue_style( 'lsx-starter-child-theme-quattrocento-sans', 'https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i' );
 
-		wp_enqueue_style( 'lsx-starter-child-theme-styles', get_stylesheet_directory_uri() . '/custom.css' );
 		wp_enqueue_script( 'lsx-starter-child-theme-scripts', get_stylesheet_directory_uri() . '/assets/js/' . $prefix . 'custom' . $suffix . '.js', array( 'jquery' ) );
-	}	
+	}
 }

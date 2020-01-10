@@ -1,6 +1,7 @@
 <?php
-namespace lsx_starter_child_theme\classes;
 /**
+ * Class Setup
+ *
  * @package   lsx_starter_child_theme\classes
  * @author    LightSpeed
  * @license   GPL-2.0+
@@ -8,8 +9,11 @@ namespace lsx_starter_child_theme\classes;
  * @copyright 2019 LightSpeed
  */
 
+namespace lsx_starter_child_theme\classes;
+
 /**
  * Class Setup
+ *
  * @package lsx_starter_child_theme\classes
  */
 class Setup {
@@ -43,8 +47,8 @@ class Setup {
 	 */
 	public static function get_instance() {
 		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
-			self::$instance = new self;
+		if ( null === self::$instance ) {
+			self::$instance = new self();
 		}
 		return self::$instance;
 	}
@@ -55,6 +59,6 @@ class Setup {
 	 * @return void
 	 */
 	public function language_setup() {
-	   load_child_theme_textdomain( 'lsx-starter-child-theme', get_stylesheet_directory() . '/languages' );
-   }
+		load_child_theme_textdomain( 'lsx-starter-child-theme', get_stylesheet_directory() . '/languages' );
+	}
 }
