@@ -6,7 +6,7 @@
  * @author    LightSpeed
  * @license   GPL-2.0+
  * @link
- * @copyright 2019 LightSpeed
+ * @copyright 2020 LightSpeed
  */
 
 namespace lsx_starter_child_theme\classes;
