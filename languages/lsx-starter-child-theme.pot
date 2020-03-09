@@ -1,4 +1,4 @@
-# Copyright (C) 2019 lsx-starter-child-theme
+# Copyright (C) 2020 lsx-starter-child-theme
 # This file is distributed under the same license as the lsx-starter-child-theme package.
 msgid ""
 msgstr ""
