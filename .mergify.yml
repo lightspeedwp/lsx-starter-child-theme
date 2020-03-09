@@ -5,3 +5,10 @@ pull_request_rules:
     actions:
       merge:
         method: merge
+  - name: automatic PR merge for krugazul (ready-to-merge)
+    conditions:
+      - author=krugazul
+      - label=ready-to-merge
+    actions:
+      merge:
+        method: merge
