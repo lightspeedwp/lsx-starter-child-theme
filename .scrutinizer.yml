@@ -34,8 +34,8 @@ build:
       cache:
         directories:
           - ~/.npm
-		  - ~/.cache/yarn
-		  - ~/.analysis
+          - ~/.cache/yarn
+          - ~/.analysis
     analysis:
       project_setup:
         override: true
