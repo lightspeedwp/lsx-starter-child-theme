@@ -31,11 +31,6 @@ build:
           version: 7.4
       services:
         mariadb: 10
-      cache:
-        directories:
-          - ~/.npm
-          - .cache/yarn
-          - ~/.analysis
     analysis:
       project_setup:
         override: true
