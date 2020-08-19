@@ -31,13 +31,18 @@ build:
           version: 7.4
       services:
         mariadb: 10
+      cache:
+        directories:
+          - ~/.npm
+		  - ~/.cache/yarn
+		  - ~/.analysis
     analysis:
       project_setup:
         override: true
       tests:
         override:
           - php-scrutinizer-run --enable-security-analysis
-          - command: phpcs-run --standard=./.phpcs.xml
+          - command: phpcs-run --standard=./.phpcs.xml --extensions=php
       dependencies:
         before:
           - composer require --dev johnpbloch/wordpress
