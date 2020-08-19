@@ -1,2 +1,5 @@
 node_modules
-lsx-starter-child-theme.sublime-workspace
+.sass-cache
+.idea
+*.sublime-workspace
+package-lock.json
